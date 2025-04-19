@@ -21,8 +21,6 @@
             color: #fff;
             text-align: center;
             padding: 10px;
-            border-bottom: 3px solid #000;
-            box-shadow: 0 0 20px #ff0000;
             width: 100%;
         }
         
@@ -44,14 +42,11 @@
             justify-content: center;
             background-color: #ff0000;
             margin: 10px;
-            border: 3px solid #000;
-            box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
         }
         
         .title {
             font-size: clamp(18px, 5vw, 32px);
             color: #ffff00;
-            text-shadow: 3px 3px 0 #000;
             margin: 10px 0;
             line-height: 1.2;
         }
@@ -59,7 +54,6 @@
         .subtitle {
             font-size: clamp(14px, 3.5vw, 24px);
             color: #fff;
-            text-shadow: 2px 2px 0 #000;
             margin-bottom: 20px;
             line-height: 1.3;
         }
@@ -75,12 +69,10 @@
         .countdown-box {
             background: #000;
             color: #fff;
-            border: 3px solid #000;
             padding: 10px;
             text-align: center;
             min-width: 60px;
             font-size: clamp(24px, 7vw, 40px);
-            text-shadow: 2px 2px 0 #ff0000;
             flex: 1;
             max-width: 100px;
         }
@@ -93,7 +85,6 @@
         
         .ticker-container {
             background: #000;
-            color: #fff;
             padding: 8px;
             overflow: hidden;
             position: relative;
@@ -101,7 +92,6 @@
             font-weight: bold;
             font-size: clamp(12px, 3vw, 16px);
             margin-top: auto;
-            border-top: 3px solid #ff0000;
         }
         
         .ticker {
@@ -109,7 +99,6 @@
             white-space: nowrap;
             animation: ticker 20s linear infinite;
             color: #ff0000;
-            text-shadow: 0 0 5px #fff;
         }
         
         .typing-effect {
@@ -177,7 +166,7 @@
     
     <div class="ticker-container">
         <div class="ticker">
-            <span class="typing-effect">⚠️ ALERTA: OTRA VEZ REPRIMEN A LOS JUBILADOS - CRISIS EN EL GOBIERNO - EL PUEBLO SE MOVILIZA - MILEI SE RESISTE A ENTREGAR LOS U$S 100 MILLONES OBTENIDOS CON LA ESTAFA $LIBRA ⚠️&nbsp;&nbsp;&nbsp;</span>
+            <span class="typing-effect">⚠️ ALERTA: OTRA VEZ REPRIMEN A LOS JUBILADOS - CRISIS EN EL GOBIERNO - EL PUEBLO SE MOVILIZA - CIERRAN LOS ACCESOS A LA CAPITAL PARA IMPEDIR QUE LLEGUEN LOS MANIFESTANTES - MILEI SE RESISTE A ENTREGAR LOS U$S 100 MILLONES OBTENIDOS CON LA ESTAFA $LIBRA ⚠️&nbsp;&nbsp;&nbsp;</span>
         </div>
     </div>
 
@@ -213,7 +202,7 @@
             }
         }
         
-        // Iniciar contador ok2
+        // Iniciar contador
         updateCountdown();
         const countdownTimer = setInterval(updateCountdown, 1000);
     </script>
