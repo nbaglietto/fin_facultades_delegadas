@@ -35,7 +35,7 @@
             text-overflow: ellipsis;
         }
         
-        .content-container {
+        .placa-roja {
             text-align: center;
             padding: 20px;
             flex: 1;
@@ -132,15 +132,6 @@
             from, to { border-color: transparent }
             50% { border-color: #ff0000; }
         }
-        
-        .flash {
-            animation: flash 0.3s;
-        }
-        
-        @keyframes flash {
-            0% { background-color: #ff0000; }
-            100% { background-color: #000; }
-        }
 
         @media (max-width: 480px) {
             .countdown-box {
@@ -148,7 +139,7 @@
                 padding: 8px;
             }
             
-            .content-container {
+            .placa-roja {
                 margin: 5px;
                 padding: 15px;
             }
@@ -160,7 +151,7 @@
         <div class="breaking-news">⚡ ÚLTIMO MOMENTO ⚡</div>
     </div>
     
-    <div class="content-container">
+    <div class="placa-roja">
         <div class="title" id="main-title">¡FALTAN <span id="days">00</span> DÍAS PARA QUE FINALICEN LOS SUPERPODERES DE STURZENEGGER!</div>
         <div class="subtitle">EL ESTADO DE TODOS LOS ARGENTINOS RESISTE SU DESTRUCCIÓN</div>
         
@@ -186,7 +177,7 @@
     
     <div class="ticker-container">
         <div class="ticker">
-            <span class="typing-effect">⚠️ ALERTA: OTRA VEZ REPRIMEN A LOS JUBILADOS - CRISIS EN EL GOBIERNO - STURZENEGGER PIERDE PODERES - EL PUEBLO SE MOVILIZA - ⚠️&nbsp;&nbsp;&nbsp;</span>
+            <span class="typing-effect">⚠️ ALERTA: OTRA VEZ REPRIMEN A LOS JUBILADOS - CRISIS EN EL GOBIERNO - EL PUEBLO SE MOVILIZA - ⚠️&nbsp;&nbsp;&nbsp;</span>
         </div>
     </div>
 
@@ -222,7 +213,7 @@
             }
         }
         
-        // Iniciar contador ok
+        // Iniciar contador ok2
         updateCountdown();
         const countdownTimer = setInterval(updateCountdown, 1000);
     </script>
