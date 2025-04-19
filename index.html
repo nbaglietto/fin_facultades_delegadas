@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÚLTIMO MOMENTO: STURZENEGGER</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            font-family: "Arial Black", Impact, sans-serif;
+            overflow: hidden;
+        }
+        
+        .cronica-banner {
+            background-color: #ff0000;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            border-bottom: 3px solid #000;
+            box-shadow: 0 0 20px #ff0000;
+        }
+        
+        .breaking-news {
+            font-size: 28px;
+            text-transform: uppercase;
+            animation: blink 1s infinite;
+        }
+        
+        .title {
+            font-size: 32px;
+            color: #ffff00;
+            text-shadow: 3px 3px 0 #000;
+            margin: 20px 0;
+        }
+        
+        .subtitle {
+            font-size: 24px;
+            color: #fff;
+            text-shadow: 2px 2px 0 #000;
+            margin-bottom: 30px;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .countdown-box {
+            background: #000;
+            color: #fff;
+            border: 3px solid #ff0000;
+            padding: 15px;
+            text-align: center;
+            min-width: 80px;
+            font-size: 40px;
+            text-shadow: 2px 2px 0 #ff0000;
+        }
+        
+        .countdown-label {
+            font-size: 16px;
+            color: #ffff00;
+            text-transform: uppercase;
+        }
+        
+        .ticker {
+            background: #ff0000;
+            color: #fff;
+            padding: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-weight: bold;
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        .flash {
+            animation: flash 0.3s;
+        }
+        
+        @keyframes flash {
+            0% { background-color: #ff0000; }
+            100% { background-color: #000; }
+        }
+    </style>
+</head>
+<body>
+    <div class="cronica-banner">
+        <div class="breaking-news">⚡ ÚLTIMO MOMENTO ⚡</div>
+    </div>
+    
+    <div style="text-align: center; padding: 20px;">
+        <div class="title" id="main-title">¡FALTAN <span id="days">00</span> DÍAS PARA QUE FINALICEN LOS SUPERPODERES DE STURZENEGGER!</div>
+        <div class="subtitle">EL ESTADO DE TODOS LOS ARGENTINOS RESISTE SU DESTRUCCIÓN</div>
+        
+        <div class="countdown">
+            <div class="countdown-box">
+                <div id="countdown-days">00</div>
+                <div class="countdown-label">DÍAS</div>
+            </div>
+            <div class="countdown-box">
+                <div id="countdown-hours">00</div>
+                <div class="countdown-label">HORAS</div>
+            </div>
+            <div class="countdown-box">
+                <div id="countdown-minutes">00</div>
+                <div class="countdown-label">MINUTOS</div>
+            </div>
+            <div class="countdown-box">
+                <div id="countdown-seconds">00</div>
+                <div class="countdown-label">SEGUNDOS</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="ticker">
+        ⚠️ ALERTA: OTRA VEZ REPRIMEN A LOS JUBILADOS -  CRISIS EN EL GOBIERNO - ⚠️
+    </div>
+
+    <script>
+        // Fecha objetivo: 8 de julio de 2025
+        const targetDate = new Date('July 8, 2025 00:00:00').getTime();
+        
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            
+            // Cálculos de tiempo
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Actualizar pantalla
+            document.getElementById('days').textContent = days;
+            document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            // Efecto de flash cada segundo
+            document.body.classList.add('flash');
+            setTimeout(() => document.body.classList.remove('flash'), 300);
+            
+            // Si la cuenta regresiva termina
+            if (distance < 0) {
+                clearInterval(countdownTimer);
+                document.getElementById('main-title').textContent = "¡STURZENEGGER PERDIÓ SUS PODERES!";
+                document.getElementById('countdown-days').textContent = '00';
+                document.getElementById('countdown-hours').textContent = '00';
+                document.getElementById('countdown-minutes').textContent = '00';
+                document.getElementById('countdown-seconds').textContent = '00';
+            }
+        }
+        
+        // Iniciar contador
+        updateCountdown();
+        const countdownTimer = setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
