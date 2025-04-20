@@ -8,7 +8,7 @@
         body {
             margin: 0;
             padding: 0;
-            background-color: #ff0000; /* Fondo rojo completo */
+            background-color: #ff0000;
             font-family: "Arial Black", Impact, sans-serif;
             overflow-x: hidden;
             min-height: 100vh;
@@ -20,20 +20,21 @@
             background-color: #ff0000;
             color: #fff;
             text-align: center;
-            padding: 30px 10px 10px 10px; /* Más espacio arriba para bajar el texto */
+            padding: 40px 10px 20px 10px;
             width: 100%;
         }
         
         .breaking-news {
-            font-size: clamp(28px, 6vw, 48px); /* Letras más grandes */
+            font-size: clamp(32px, 7vw, 60px);
             text-transform: uppercase;
-            animation: blink 1s infinite;
+            animation: blink 1.5s infinite;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             font-family: 'Impact', Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-            text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; /* Efecto espectacular con borde */
-            letter-spacing: 2px;
+            text-shadow: 4px 4px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
         }
         
         .placa-roja {
@@ -48,87 +49,93 @@
         }
         
         .title {
-            font-size: clamp(18px, 5vw, 32px);
+            font-size: clamp(20px, 5.5vw, 36px);
             color: #ffff00;
-            margin: 10px 0;
-            line-height: 1.2;
+            margin: 15px 0;
+            line-height: 1.3;
         }
         
         .subtitle {
-            font-size: clamp(14px, 3.5vw, 24px);
+            font-size: clamp(16px, 4vw, 28px);
             color: #fff;
-            margin-bottom: 20px;
-            line-height: 1.3;
+            margin-bottom: 25px;
+            line-height: 1.4;
         }
         
         .countdown {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin: 20px 0;
+            gap: 15px;
+            margin: 25px 0;
         }
         
         .countdown-box {
             background: #000;
             color: #fff;
-            padding: 10px;
+            padding: 12px;
             text-align: center;
-            min-width: 60px;
-            font-size: clamp(24px, 7vw, 40px);
+            min-width: 70px;
+            font-size: clamp(28px, 8vw, 48px);
             flex: 1;
-            max-width: 100px;
+            max-width: 110px;
+            border-radius: 5px;
         }
         
         .countdown-label {
-            font-size: clamp(10px, 2.5vw, 16px);
+            font-size: clamp(12px, 3vw, 18px);
             color: #ffff00;
             text-transform: uppercase;
+            margin-top: 5px;
         }
         
         .ticker-container {
             background: #000;
-            padding: 12px; /* Más padding para mejor visibilidad */
+            padding: 15px 0;
             overflow: hidden;
             position: relative;
             width: 100%;
             font-weight: bold;
-            font-size: clamp(14px, 3vw, 18px); /* Texto un poco más grande */
+            font-size: clamp(16px, 3.5vw, 20px);
             margin-top: auto;
+            border-top: 3px solid #ffff00;
         }
         
         .ticker {
             display: inline-block;
             white-space: nowrap;
-            animation: ticker 30s linear infinite; /* Velocidad más lenta (30s) */
-            color: #ffff00; /* Texto amarillo para mejor contraste con fondo rojo */
+            padding-right: 100%;
+            animation: ticker 60s linear infinite;
+            color: #ffff00;
         }
         
         .typing-effect {
-            border-right: 2px solid #ffff00; /* Cambiado a amarillo para coincidir */
+            border-right: 3px solid #ffff00;
             animation: blink-caret 0.75s step-end infinite;
+            padding-right: 10px;
         }
         
         @keyframes ticker {
-            0% { transform: translateX(100%); }
+            0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
         
         @keyframes blink {
             0% { opacity: 1; }
-            50% { opacity: 0.3; }
+            50% { opacity: 0.7; }
             100% { opacity: 1; }
         }
         
         @keyframes blink-caret {
             from, to { border-color: transparent }
-            50% { border-color: #ffff00; } /* Cambiado a amarillo */
+            50% { border-color: #ffff00; }
         }
 
         @media (max-width: 480px) {
             .countdown-box {
-                min-width: 50px;
-                padding: 8px;
+                min-width: 60px;
+                padding: 10px;
+                font-size: clamp(24px, 7vw, 36px);
             }
             
             .placa-roja {
@@ -137,7 +144,12 @@
             }
             
             .breaking-news {
-                font-size: clamp(24px, 6vw, 36px); /* Ajuste para móviles */
+                font-size: clamp(28px, 7vw, 48px);
+                letter-spacing: 2px;
+            }
+            
+            .ticker {
+                animation: ticker 80s linear infinite; /* Más lento en móviles */
             }
         }
     </style>
@@ -173,7 +185,7 @@
     
     <div class="ticker-container">
         <div class="ticker">
-            <span class="typing-effect">⚠️ ALERTA: BULLRICH OTRA VEZ REPRIME A LOS JUBILADOS - CRISIS EN EL GOBIERNO NO LE PRESTA UN DOLAR NI MACRI- EL PUEBLO SE MOVILIZA - CIERRAN LOS ACCESOS A LA CAPITAL PARA IMPEDIR QUE LLEGUEN LOS MANIFESTANTES - MILEI SE RESISTE A ENTREGAR LOS U$S 100 MILLONES OBTENIDOS CON LA ESTAFA $LIBRA - EN LA PROVINCIA DE BUENOS AIRES, LA LISTA DE UNIDAD KIRNERISTA ARRASA EN LAS ELECCIONES.   ⚠️&nbsp;&nbsp;&nbsp;</span>
+            <span class="typing-effect">⚠️ ALERTA: BULLRICH OTRA VEZ REPRIME A LOS JUBILADOS - CRISIS EN EL GOBIERNO NO LE PRESTA UN DOLAR NI MACRI - EL PUEBLO SE MOVILIZA - CIERRAN LOS ACCESOS A LA CAPITAL PARA IMPEDIR QUE LLEGUEN LOS MANIFESTANTES - MILEI SE RESISTE A ENTREGAR LOS U$S 100 MILLONES OBTENIDOS CON LA ESTAFA $LIBRA - EN LA PROVINCIA DE BUENOS AIRES, LA LISTA DE UNIDAD KIRNERISTA ARRASA EN LAS ELECCIONES. &nbsp;&nbsp;&nbsp;⚠️ &nbsp;&nbsp;&nbsp;</span>
         </div>
     </div>
 
