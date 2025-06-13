@@ -15,7 +15,7 @@
             display: flex;
             flex-direction: column;
         }
-        
+
         .cronica-banner {
             background-color: #ff0000;
             color: #fff;
@@ -23,7 +23,7 @@
             padding: 40px 10px 20px 10px;
             width: 100%;
         }
-        
+
         .breaking-news {
             font-size: clamp(32px, 7vw, 60px);
             text-transform: uppercase;
@@ -36,7 +36,7 @@
             letter-spacing: 3px;
             margin-bottom: 10px;
         }
-        
+
         .placa-roja {
             text-align: center;
             padding: 20px;
@@ -47,21 +47,21 @@
             background-color: #ff0000;
             margin: 10px;
         }
-        
+
         .title {
             font-size: clamp(20px, 5.5vw, 36px);
             color: #ffff00;
             margin: 15px 0;
             line-height: 1.3;
         }
-        
+
         .subtitle {
             font-size: clamp(16px, 4vw, 28px);
             color: #fff;
             margin-bottom: 25px;
             line-height: 1.4;
         }
-        
+
         .countdown {
             display: flex;
             justify-content: center;
@@ -69,7 +69,7 @@
             gap: 15px;
             margin: 25px 0;
         }
-        
+
         .countdown-box {
             background: #000;
             color: #fff;
@@ -81,14 +81,14 @@
             max-width: 110px;
             border-radius: 5px;
         }
-        
+
         .countdown-label {
             font-size: clamp(12px, 3vw, 18px);
             color: #ffff00;
             text-transform: uppercase;
             margin-top: 5px;
         }
-        
+
         .ticker-container {
             background: #000;
             padding: 15px 0;
@@ -100,7 +100,7 @@
             margin-top: auto;
             border-top: 3px solid #ffff00;
         }
-        
+
         .ticker {
             display: inline-block;
             white-space: nowrap;
@@ -108,24 +108,24 @@
             animation: ticker 60s linear infinite;
             color: #ffff00;
         }
-        
+
         .typing-effect {
             border-right: 3px solid #ffff00;
             animation: blink-caret 0.75s step-end infinite;
             padding-right: 10px;
         }
-        
+
         @keyframes ticker {
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
         }
-        
+
         @keyframes blink {
             0% { opacity: 1; }
             50% { opacity: 0.7; }
             100% { opacity: 1; }
         }
-        
+
         @keyframes blink-caret {
             from, to { border-color: transparent }
             50% { border-color: #ffff00; }
@@ -137,19 +137,19 @@
                 padding: 10px;
                 font-size: clamp(24px, 7vw, 36px);
             }
-            
+
             .placa-roja {
                 margin: 5px;
                 padding: 15px;
             }
-            
+
             .breaking-news {
                 font-size: clamp(28px, 7vw, 48px);
                 letter-spacing: 2px;
             }
-            
+
             .ticker {
-                animation: ticker 80s linear infinite; /* Más lento en móviles */
+                animation: ticker 80s linear infinite;
             }
         }
     </style>
@@ -158,11 +158,11 @@
     <div class="cronica-banner">
         <div class="breaking-news">⚡ ÚLTIMO MOMENTO ⚡</div>
     </div>
-    
+
     <div class="placa-roja">
         <div class="title" id="main-title">¡FALTAN <span id="days">00</span> DÍAS PARA QUE FINALICEN LOS SUPERPODERES DE STURZENEGGER!</div>
         <div class="subtitle">EL PUEBLO PADECE LA DESTRUCCIÓN DEL ESTADO.</div>
-        
+
         <div class="countdown">
             <div class="countdown-box">
                 <div id="countdown-days">00</div>
@@ -182,45 +182,43 @@
             </div>
         </div>
     </div>
-    
-    <div class="ticker" id="ticker-noti>
-            <span class="typing-effect">⚠️ ALERTA: SE CONCRETO LA PROSCRIPCION DE CFK - AL PUEBLO SE LE IMPIDE VOTAR A SU CANDIDATA Y EN LAS CALLES SE LEEN ESTAS PINTADAS "Si no hay Justicia hay ESCRACHE" #CristinaLibre - #CristinaVuelve - #PARALACOMPAÑERALALIBERTAD - 
-           #PARONACIONA #CV #LUCHA_Y_VUELVE   &nbsp;&nbsp;&nbsp;⚠️ &nbsp;&nbsp;&nbsp;</span>
+
+    <!-- CORRECCIÓN: ticker dentro de su contenedor -->
+    <div class="ticker-container">
+        <div class="ticker" id="ticker-noti">
+            <span class="typing-effect">⚠️ ALERTA: SE CONCRETO LA PROSCRIPCION DE CFK - AL PUEBLO SE LE IMPIDE VOTAR A SU CANDIDATA Y EN LAS CALLES SE LEEN ESTAS PINTADAS "Si no hay Justicia hay ESCRACHE" #CristinaLibre - #CristinaVuelve - #PARALACOMPAÑERALALIBERTAD - #PARONACIONAL #CV #LUCHA_Y_VUELVE ⚠️</span>
         </div>
+    </div>
+
     <script>
-        // Fecha objetivo: 8 de julio de 2025
         const targetDate = new Date('July 8, 2025 00:00:00').getTime();
-        
+
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
-            
-            // Cálculos de tiempo
+
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            // Actualizar pantalla
+
             document.getElementById('days').textContent = days;
             document.getElementById('countdown-days').textContent = days.toString().padStart(2, '0');
             document.getElementById('countdown-hours').textContent = hours.toString().padStart(2, '0');
             document.getElementById('countdown-minutes').textContent = minutes.toString().padStart(2, '0');
             document.getElementById('countdown-seconds').textContent = seconds.toString().padStart(2, '0');
-            
-            // Si la cuenta regresiva termina
+
             if (distance < 0) {
                 clearInterval(countdownTimer);
                 document.getElementById('main-title').textContent = "¡STURZENEGGER PERDIÓ SUS PODERES! ¡¡¡PUEBLO ESTA DE FIESTA!!!";
-                document.getElementById('ticker-noti').textContent = "Fiesta fiesta ";
+                document.getElementById('ticker-noti').textContent = "🎉 ¡STURZENEGGER YA FUE! ¡CELEBREMOS LA VICTORIA DEL PUEBLO! 🎉";
                 document.getElementById('countdown-days').textContent = '00';
                 document.getElementById('countdown-hours').textContent = '00';
                 document.getElementById('countdown-minutes').textContent = '00';
                 document.getElementById('countdown-seconds').textContent = '00';
             }
         }
-        
-        // Iniciar contador
+
         updateCountdown();
         const countdownTimer = setInterval(updateCountdown, 1000);
     </script>
